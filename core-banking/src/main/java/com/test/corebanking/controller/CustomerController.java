@@ -1,5 +1,6 @@
 package com.test.corebanking.controller;
 
+import com.test.corebanking.dto.CustomerAccountsDto;
 import com.test.corebanking.dto.CustomerDto;
 import com.test.corebanking.service.CustomerService;
 import lombok.RequiredArgsConstructor;
@@ -23,4 +24,11 @@ public class CustomerController {
     public List<CustomerDto> getAllCustomers(){
         return customerService.getAllCustomers();
     }
+
+    @GetMapping(value = "/accounts-details")
+    @ResponseStatus(HttpStatus.OK)
+    public List<CustomerAccountsDto> getCustomersAccountsDetails(){
+        return customerService.getCustomersAccountsInfo();
+    }
+
 }

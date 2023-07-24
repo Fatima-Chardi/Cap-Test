@@ -5,12 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerDto {
-    private Long customerId;
-    private String name;
-    private String surname;
+public class AccountDto {
+    private Long accountId;
+    private double balance;
+    private List<TransactionDto> transactions;
 }

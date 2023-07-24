@@ -1,16 +1,14 @@
 package com.test.corebanking.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerDto {
+public class CreateAccountRequest {
+
     private Long customerId;
-    private String name;
-    private String surname;
+    private double initialCredit;
 }

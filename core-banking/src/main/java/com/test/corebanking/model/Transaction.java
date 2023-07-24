@@ -2,17 +2,15 @@ package com.test.corebanking.model;
 
 import com.test.corebanking.enums.TransactionType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name="t_transactions")
-@Data
 @Builder
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Transaction {
@@ -21,9 +19,10 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Account account;
 
+    @Enumerated(EnumType.STRING)
     private TransactionType type;
 
     private double amount;

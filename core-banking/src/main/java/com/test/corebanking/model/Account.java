@@ -18,15 +18,14 @@ public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long accountId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Customer customer;
 
     private double balance;
 
     @OneToMany(mappedBy = "account")
     private List<Transaction> transactions;
-
 
 }

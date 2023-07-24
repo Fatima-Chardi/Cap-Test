@@ -1,8 +1,8 @@
 package com.test.corebanking.enums;
 
 public enum TransactionType {
-    C("Credit"),
-    D("Debit");
+    CREDIT("Credit"),
+    DEBIT("Debit");
 
     public final String value;
 
