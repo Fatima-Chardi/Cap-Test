@@ -1,14 +1,14 @@
 package com.test.corebanking.controller;
 
+import com.test.corebanking.dto.CreateCustomerRequest;
 import com.test.corebanking.dto.CustomerAccountsDto;
 import com.test.corebanking.dto.CustomerDto;
+import com.test.corebanking.exception.CustomerNotFoundException;
+import com.test.corebanking.exception.NegativeInitialCreditException;
 import com.test.corebanking.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,10 +25,15 @@ public class CustomerController {
         return customerService.getAllCustomers();
     }
 
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createCustomer(@RequestBody CreateCustomerRequest createCustomerRequest) throws CustomerNotFoundException, NegativeInitialCreditException {
+        customerService.createCustomer(createCustomerRequest);
+    }
+
     @GetMapping(value = "/accounts-details")
     @ResponseStatus(HttpStatus.OK)
     public List<CustomerAccountsDto> getCustomersAccountsDetails(){
         return customerService.getCustomersAccountsInfo();
     }
-
 }

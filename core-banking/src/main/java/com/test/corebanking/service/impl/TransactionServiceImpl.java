@@ -5,7 +5,6 @@ import com.test.corebanking.enums.TransactionType;
 import com.test.corebanking.model.Account;
 import com.test.corebanking.model.Transaction;
 import com.test.corebanking.repository.TransactionRepository;
-import com.test.corebanking.service.AccountService;
 import com.test.corebanking.service.TransactionService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

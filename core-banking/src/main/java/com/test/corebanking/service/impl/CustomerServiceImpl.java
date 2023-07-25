@@ -1,6 +1,7 @@
 package com.test.corebanking.service.impl;
 
 import com.test.corebanking.config.AppConstants;
+import com.test.corebanking.dto.CreateCustomerRequest;
 import com.test.corebanking.dto.CustomerAccountsDto;
 import com.test.corebanking.dto.CustomerDto;
 import com.test.corebanking.exception.CustomerNotFoundException;
@@ -24,7 +25,6 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public List<CustomerDto> getAllCustomers() {
         List<Customer> customerList = customerRepository.findAll();
-
         List<CustomerDto> customerDtoList = customerList.stream()
                 .map(customer -> modelMapper.map(customer, CustomerDto.class))
                 .toList();
@@ -48,5 +48,13 @@ public class CustomerServiceImpl implements CustomerService {
                 .toList();
 
         return customerAccountsList;
+    }
+
+    @Override
+    public void createCustomer(CreateCustomerRequest createCustomerRequest) {
+        Customer newCustomer = Customer.builder()
+                .name(createCustomerRequest.getName())
+                .surname(createCustomerRequest.getSurname()).build();
+        customerRepository.save(newCustomer);
     }
 }

@@ -1,5 +1,6 @@
 package com.test.corebanking.service;
 
+import com.test.corebanking.dto.CreateCustomerRequest;
 import com.test.corebanking.dto.CustomerAccountsDto;
 import com.test.corebanking.dto.CustomerDto;
 import com.test.corebanking.exception.CustomerNotFoundException;
@@ -17,4 +18,5 @@ public interface CustomerService {
 
     List<CustomerAccountsDto> getCustomersAccountsInfo();
 
+    void createCustomer(CreateCustomerRequest createCustomerRequest);
 }

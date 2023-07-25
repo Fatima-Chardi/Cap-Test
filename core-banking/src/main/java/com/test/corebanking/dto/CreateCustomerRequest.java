@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateAccountRequest {
+public class CreateCustomerRequest {
 
-    private Long customerId;
-    private double initialCredit;
+    private String name;
+    private String surname;
 }
